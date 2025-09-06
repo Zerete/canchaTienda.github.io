@@ -114,6 +114,44 @@
             }
         }
     });
+    //https://regexr.com/   validaciones
+
+    
+    document.getElementById("reservaForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita envío si hay errores
+
+    
+    let nombre = document.getElementById("name").value.trim();
+    let correo = document.getElementById("email").value.trim();
+    let fechaHora = document.getElementById("datetime").value.trim();
+    let personas = document.getElementById("select1").value;
+
+    
+    let nombreRegex = /^[A-Za-z\s]+$/; // Solo letras y espacios
+    let correoRegex = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/; // Email básico
+   
+    
+   
+    if (!nombreRegex.test(nombre)) {
+        alert("❌ Se le nego la reserva, por favor ingresa un nombre válido (solo letras y espacios).");
+        return;
+    }
+
+    if (!correoRegex.test(correo)) {
+        alert("❌ Se le nego la reserva, por favor  ingresa un correo válido.");
+        return;
+    }
+
+    
+
+    if (!personas) {
+        alert("❌ Se le nego la reserva, por favor selecciona la cantidad de personas.");
+        return;
+    }
+
+    alert(`✅ Reserva realizada con éxito!\nNombre: ${nombre}\nCorreo: ${correo}\nFecha y Hora: ${fechaHora}\nPersonas: ${personas}`);
+});
+
     
 })(jQuery);
 

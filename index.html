@@ -70,7 +70,7 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">acerca de nosotros </a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Reservar Ahora</a>
+                    <a href="#reserva" class="btn btn-primary py-2 px-4">Reservar Ahora</a>
                 </div>
             </nav>
 
@@ -80,7 +80,7 @@
                         <div class="col-lg-6 text-center text-lg-start">
                             <h1 class="display-3 text-white animated slideInLeft">Reserva  Ahora y<br> Disfruta de una Cancha de Fútbol</h1>
                             <p class="text-white animated slideInLeft mb-4 pb-2">Reserva tu cancha de fútbol de manera fácil y rápida. Elige tu horario, ubicación y tipo de cancha según tus necesidades</p>
-                            <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Reservar Ahora</a>
+                            <a href="#reserva" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Reservar Ahora</a>
                         </div>
                         <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                             <img class="img-fluid" src="img/hero.png" alt="">
@@ -357,63 +357,97 @@
         <!-- Menu End -->
 
 
+
+
+<!--FORMULARIO-->
+
+
+
+
+
         <!-- Reservation Start -->
         <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
             <div class="row g-0">
                 <div class="col-md-6">
                     <div class="video">
+                        <!-- Si quieres agregar un botton para el video entonces copia el codigo de abajo.
                         <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/watch?v=MRk9SytVpmM" data-bs-target="#videoModal">
                             <span></span>
-                        </button>
+                        </button>-->
                     </div>
                 </div>
-                <div class="col-md-6 bg-dark d-flex align-items-center">
+                <!-- FORMULARIO -->
+                <div id="reserva" class="col-md-6 bg-dark d-flex align-items-center">
+
+
+
+
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reserva ahora </h5>
                         <h1 class="text-white mb-4">Reserva tu cancha online</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Tu Nombre</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Tu Correo</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Fecha y Hora<</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select1">
-                                          <option value="1">10 Personas </option>
-                                          <option value="2">12 Personas </option>
-                                          <option value="3">20 Personas </option>
-                                        </select>
-                                        <label for="select1">Cantidad de personas </label>
-                                      </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                                </div>
+                        <form id="reservaForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                <label for="name">Tu Nombre</label>
                             </div>
-                        </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                <label for="email">Tu Correo</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating date" id="date3" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <label for="datetime">Fecha y Hora</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="select1">
+                                <option value="10">10 Personas </option>
+                                <option value="12">12 Personas </option>
+                                <option value="20">20 Personas </option>
+                                </select>
+                                <label for="select1">Cantidad de personas </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                <label for="message">Requerimientos Especiales</label>
+                            </div>
+                        </div>
+   
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Reservar ahora</button>
+                        </div>
                     </div>
-                </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- muestra el mensaje, tuve problemas con el value de cantidad de personas, pero se soluciono✔️ -->
+        <script>
+            document.getElementById("reservaForm").addEventListener("submit", function(event) {
+                event.preventDefault(); 
+
+                let nombre = document.getElementById("name").value;
+                let correo = document.getElementById("email").value;
+                let fechaHora = document.getElementById("datetime").value;
+                let personas = document.getElementById("select1").value;
+                let requerimientos = document.getElementById("message").value;
+
+                let mensaje = `✅ Reserva a sido todo un con éxito\n\n👤 Nombre: ${nombre}\n✉️ Correo: ${correo}\n📅 Fecha y Hora: ${fechaHora}\n👥 Personas: ${personas}\n📝 Requerimientos: ${requerimientos ? requerimientos : "Ninguno"}`;
+
+                alert(mensaje);
+                
+            });
+        </script>
+
             </div>
         </div>
 
