@@ -1,0 +1,27 @@
+.cancha-card {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+
+.cancha-card:hover {
+  transform: scale(1.02);
+}
+
+.img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.cancha-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
