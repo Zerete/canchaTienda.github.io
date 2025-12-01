@@ -7,71 +7,69 @@ function IniciarSesion() {
   const [error, setError] = useState("");
   const [modoRegistro, setModoRegistro] = useState(false);
 
+  // Estados para registro
   const [nuevoNombre, setNuevoNombre] = useState("");
   const [nuevoCorreo, setNuevoCorreo] = useState("");
   const [nuevoPass, setNuevoPass] = useState("");
 
   const navigate = useNavigate();
 
-  // 🔥 REGISTRAR NUEVO USUARIO
+  const API_URL = "http://100.30.44.192:8080/auth";
+
+ 
   const registrarUsuario = (e) => {
     e.preventDefault();
-
-    if (!nuevoNombre || !nuevoCorreo || !nuevoPass) {
-      setError("Todos los campos son obligatorios");
-      return;
-    }
-
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    if (usuarios.some((u) => u.correo === nuevoCorreo)) {
-      setError("Este correo ya está registrado");
-      return;
-    }
-
-    usuarios.push({
-      nombre: nuevoNombre,
-      correo: nuevoCorreo,
-      password: nuevoPass,
-    });
-
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-    alert("Registro exitoso. Ahora puedes iniciar sesión.");
+   
+    alert("Para crear cuentas reales de administrador, usa Swagger por el momento.");
     setModoRegistro(false);
-    setError("");
   };
 
-  // 🔥 INICIAR SESIÓN
-  const manejarEnvio = (e) => {
+ 
+
+  const manejarEnvio = async (e) => {
     e.preventDefault();
+    setError("");
 
-    // ⚡ ADMIN LOGIN (no requiere correo)
-    if (usuario === "admin" && contrasena === "1234") {
-      setError("");
-      navigate("/admin");
-      return;
-    }
+    try {
+      console.log("Enviando credenciales a AWS...");
+      
+      const response = await fetch(`${API_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: usuario,
+          password: contrasena,
+        }),
+      });
 
-    // ⚡ LOGIN NORMAL
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    const encontrado = usuarios.find(
-      (u) => u.correo === usuario && u.password === contrasena
-    );
-
-    if (encontrado) {
-      setError("");
-      navigate("/");
-    } else {
-      setError("Usuario o contraseña incorrectos");
+      if (response.ok) {
+        const token = await response.text();
+        
+        // Guardamos datos
+        localStorage.setItem("token", token);
+        localStorage.setItem("usuario", usuario);
+        
+        console.log("Login exitoso.");
+       
+        
+        
+        navigate("/admin"); 
+        
+      } else {
+        setError("Usuario o contraseña incorrectos (Revisa Swagger)");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Error al conectar con el servidor AWS");
     }
   };
 
   return (
     <div
       style={{
-        backgroundImage: "url('/src/assets/img/totalfondo.jpg')",
+        backgroundImage: "url('/img/totalfondo.jpg')", // Ajusta si tu ruta es diferente
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
@@ -94,6 +92,10 @@ function IniciarSesion() {
           }}
         >
           <h2 style={{ textAlign: "center", color: "#198754" }}>Registrarme</h2>
+          
+          <p style={{textAlign: "center", fontSize: "0.8rem", color: "gray"}}>
+            (Usa Swagger para crear usuarios Admin)
+          </p>
 
           <label>Nombre:</label>
           <input
@@ -168,9 +170,9 @@ function IniciarSesion() {
         >
           <h2 style={{ textAlign: "center", color: "#0d6efd" }}>Iniciar Sesión</h2>
 
-          <label>Correo o usuario (admin):</label>
+          <label>Usuario (admin):</label>
           <input
-            type="text"  // 👈 Puede ser texto normal (permite admin sin @)
+            type="text"
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             style={{ width: "100%", marginBottom: "1rem", padding: "0.5rem" }}
@@ -198,6 +200,7 @@ function IniciarSesion() {
               borderRadius: "5px",
               marginBottom: "1rem",
               border: "none",
+              cursor: "pointer"
             }}
           >
             Entrar
@@ -216,6 +219,7 @@ function IniciarSesion() {
               color: "white",
               borderRadius: "5px",
               border: "none",
+              cursor: "pointer"
             }}
           >
             Registrarme

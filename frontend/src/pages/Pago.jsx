@@ -2,20 +2,20 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-// Fútbol
+
 import formacionImg from "../assets/img/formacion.jpg";
 import formacionImgB from "../assets/img/formacionb.jpg";
 
-// Basquet (solo 1 imagen)
+
 import basquetA from "../assets/img/basquetA.jpg";
 
-// Voley (solo 1 imagen)
+
 import voleyA from "../assets/img/vole.jpg";
 
-// Tenis (solo 1 imagen)
+
 import tenisA from "../assets/img/tenisA.jpg";
 
-// POSICIONES — FUTBOL
+
 const posicionesFutbol = [
   { top: 260, left: 230 },
   { top: 225, left: 80 },
@@ -30,7 +30,7 @@ const posicionesFutbol = [
   { top: 80, left: 153 },
 ];
 
-// POSICIONES — BASQUET (10)
+
 const posicionesBasquet = [
   { top: 220, left: 150 },
   { top: 220, left: 50 },
@@ -44,13 +44,13 @@ const posicionesBasquet = [
   { top: 50, left: 400 },
 ];
 
-// POSICIONES — VOLEY (12)
+
 const posicionesVoley = Array.from({ length: 12 }, (_, i) => ({
   top: 250 - (i % 6) * 25,
   left: 200 + (i >= 6 ? 100 : -100),
 }));
 
-// POSICIONES — TENIS (4)
+
 const posicionesTenis = [
   { top: 170, left: 290 },
   { top: 170, left: 200 },
@@ -58,7 +58,7 @@ const posicionesTenis = [
   { top: 130, left: 290 },
 ];
 
-// 🔥 NUEVO SISTEMA DE HORARIOS (1h 30min — 10:00 → 22:00)
+
 const generarHoras = () => {
   const horas = [];
   let hora = 10;
@@ -69,11 +69,11 @@ const generarHoras = () => {
     const m = minutos.toString().padStart(2, "0");
     horas.push(`${h}:${m}`);
 
-    // SUMA 90 MINUTOS EXACTOS
+   
     minutos += 90;
     if (minutos >= 60) {
-      hora += Math.floor(minutos / 60); // suma 1 o 2 horas según corresponda
-      minutos = minutos % 60;           // convierte 120 → 0, 90 → 30
+      hora += Math.floor(minutos / 60); 
+      minutos = minutos % 60;          
     }
   }
 
@@ -82,7 +82,7 @@ const generarHoras = () => {
 
 const horasDisponibles = generarHoras();
 
-// RETORNA SOLO LO NECESARIO SEGÚN DEPORTE
+
 const obtenerImagenCancha = (nombreCancha) => {
   const lower = nombreCancha.toLowerCase();
 
@@ -141,7 +141,7 @@ const Pago = () => {
     return <p style={{ color: "#fff", textAlign: "center" }}>No se seleccionó ninguna cancha.</p>;
   }
 
-  // FORMULARIO
+
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -151,7 +151,7 @@ const Pago = () => {
   const [jugadores, setJugadores] = useState([{ nombre: "", rut: "" }]);
   const [error, setError] = useState("");
 
-  // 🔥 LIMITE SEGÚN EL DEPORTE
+  
   const agregarJugador = () => {
     const nombreCancha = cancha.nombre.toLowerCase();
     let maxJugadores = 22;
@@ -271,7 +271,7 @@ const Pago = () => {
             </div>
           </div>
         ) : (
-          /* UNA IMAGEN (Basquet, Voley, Tenis) */
+          
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ position: "relative", width: "500px", height: "300px" }}>
               <img src={data.equipoA} style={{ width: "100%", height: "100%", borderRadius: "10px" }} />

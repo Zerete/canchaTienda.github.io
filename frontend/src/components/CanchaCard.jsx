@@ -4,7 +4,7 @@ function CanchaCard({ cancha }) {
   const navigate = useNavigate();
 
   const handleReservar = () => {
-    // Enviar la cancha seleccionada al formulario de pago
+    
     navigate("/pago", { state: { canchaSeleccionada: cancha } });
   };
 

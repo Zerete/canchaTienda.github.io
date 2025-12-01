@@ -21,14 +21,13 @@ const Canchas = () => {
         const data = await res.json();
         console.log("Datos recibidos de AWS:", data);
 
-        // ADAPTADOR: Transformamos los datos de Java para que React los entienda
-        // Si Java no manda imagen, usamos una por defecto.
+        
         const dataAdaptada = data.map((producto) => ({
             id: producto.id,
             nombre: producto.nombre,
-            // Usamos el precio como descripción si no hay descripción
+           
             descripcion: producto.descripcion || `Precio por hora: $${producto.precio}`, 
-            // Imagen por defecto si no viene del backend
+          
             imagen: producto.imagen || "https://images.unsplash.com/photo-1579952363873-27f3bde9be2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", 
             precioHora: producto.precio
         }));
