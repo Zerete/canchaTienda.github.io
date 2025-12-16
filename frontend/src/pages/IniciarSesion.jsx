@@ -7,7 +7,6 @@ function IniciarSesion() {
   const [error, setError] = useState("");
   const [modoRegistro, setModoRegistro] = useState(false);
 
-  // Estados para registro
   const [nuevoNombre, setNuevoNombre] = useState("");
   const [nuevoCorreo, setNuevoCorreo] = useState("");
   const [nuevoPass, setNuevoPass] = useState("");
@@ -47,7 +46,7 @@ function IniciarSesion() {
       if (response.ok) {
         const token = await response.text();
         
-        // Guardamos datos
+    
         localStorage.setItem("token", token);
         localStorage.setItem("usuario", usuario);
         
@@ -69,7 +68,7 @@ function IniciarSesion() {
   return (
     <div
       style={{
-        backgroundImage: "url('/img/totalfondo.jpg')", // Ajusta si tu ruta es diferente
+        backgroundImage: "url('/img/totalfondo.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
@@ -79,7 +78,7 @@ function IniciarSesion() {
         fontFamily: "Arial, sans-serif",
       }}
     >
-      {/* ===================== REGISTRO ===================== */}
+      
       {modoRegistro ? (
         <form
           onSubmit={registrarUsuario}
@@ -157,7 +156,7 @@ function IniciarSesion() {
           </button>
         </form>
       ) : (
-        /* ===================== LOGIN ===================== */
+       
         <form
           onSubmit={manejarEnvio}
           style={{

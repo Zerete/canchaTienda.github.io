@@ -1,0 +1,152 @@
+/* Diseño general de la tarjeta */
+.card-cancha {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.card-cancha:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de la imagen */
+.img-container {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-cancha:hover .img-container img {
+  transform: scale(1.05); /* Zoom suave al pasar el mouse */
+}
+
+/* Etiqueta de Estado (Badge) */
+.badge-estado {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.estado-verde { background-color: #198754; }
+.estado-amarillo { background-color: #ffc107; color: black; }
+.estado-rojo { background-color: #dc3545; }
+.estado-gris { background-color: #6c757d; }
+
+/* Botones Flotantes (Compartir / Descargar) */
+.acciones-flotantes {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+  
+  /* OCULTO POR DEFECTO */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* MOSTRAR AL HACER HOVER */
+.card-cancha:hover .acciones-flotantes {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-accion {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-accion:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+/* Info de la tarjeta */
+.card-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.descripcion {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.precio {
+  color: #0d6efd;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Botón de Reservar */
+.btn-reservar {
+  width: 100%;
+  padding: 10px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-reservar:hover {
+  background-color: #0b5ed7;
+}
+
+.btn-disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

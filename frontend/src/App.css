@@ -1,7 +1,7 @@
 .banner {
   position: relative;
   width: 100%;
-  height: 350px; /* altura desktop */
+  height: 350px; 
   background-image: url('/img/bg-hero.jpg');
   background-size: cover;
   background-position: center;
@@ -18,7 +18,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.55); /* overlay más oscuro */
+  background-color: rgba(0, 0, 0, 0.55); 
   z-index: 1;
 }
 
@@ -42,7 +42,7 @@
   text-shadow: 1.5px 1.5px 4px rgba(0,0,0,0.7);
 }
 
-/* Responsive: tablets y móviles */
+
 @media (max-width: 1024px) {
   .banner {
     height: 300px;
@@ -68,6 +68,6 @@
 }
 .banner h1,
 .banner p {
-  color: #fff; /* texto blanco sólido */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* opcional para contraste */
+  color: #fff; 
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); 
 }

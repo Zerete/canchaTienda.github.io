@@ -5,7 +5,7 @@ const CanchaDetalle = () => {
   const { id } = useParams();
   const [detalle, setDetalle] = useState(null);
 
-  // ✅ 1. Usamos la IP Elástica de tu servidor AWS
+ 
   const API_URL = `http://100.30.44.192:8080/api/productos/${id}`;
 
   useEffect(() => {
@@ -20,13 +20,10 @@ const CanchaDetalle = () => {
 
         const data = await res.json();
         
-        // ✅ 2. Adaptamos los datos: 
-        // Como el backend no tiene campos separados para "Dimensiones" o "Jugadores",
-        // ponemos valores por defecto o usamos la descripción para que no se rompa la página.
+        
         const canchaAdaptada = {
             ...data,
-            precioHora: data.precio, // El backend manda 'precio', tu frontend usa 'precioHora'
-            // Si la imagen viene vacía, ponemos una por defecto
+            precioHora: data.precio, 
             imagen: data.imagen || "https://images.unsplash.com/photo-1579952363873-27f3bde9be2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
         };
 

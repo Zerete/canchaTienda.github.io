@@ -12,20 +12,20 @@ import Reservas from "./pages/Reservas";
 import Contacto from "./pages/Contacto";
 import IniciarSesion from "./pages/IniciarSesion";
 import Pago from "./pages/Pago";
-import Admin from "./pages/Admin"; // ← IMPORT CORRECTO
+import Admin from "./pages/Admin"; 
 
 
 function AppContent() {
   const location = useLocation();
 
-  // 🔥 Detecta si estás en /admin para ocultar header/nav/footer
+ 
   const isAdminRoute =
     location.pathname === "/admin" ||
     location.pathname.startsWith("/admin/");
 
   return (
     <>
-      {/* Oculta Header y NavBar en el panel admin */}
+   
       {!isAdminRoute && <Header />}
       {!isAdminRoute && <NavBar />}
 
@@ -39,7 +39,7 @@ function AppContent() {
           backgroundPosition: "center",
         }}
       >
-        {/* Capa oscura encima del fondo */}
+        
         <div
           style={{
             position: "absolute",
@@ -52,7 +52,7 @@ function AppContent() {
           }}
         ></div>
 
-        {/* Contenido principal */}
+     
         <main
           style={{
             position: "relative",
@@ -69,16 +69,16 @@ function AppContent() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/iniciar_sesion" element={<IniciarSesion />} />
 
-            {/* PAGO */}
+       
             <Route path="/pago" element={<Pago />} />
 
-            {/* ADMIN */}
+          
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
       </div>
 
-      {/* Oculta el Footer en rutas admin */}
+     
       {!isAdminRoute && <Footer />}
     </>
   );
