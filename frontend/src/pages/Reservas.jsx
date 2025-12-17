@@ -6,8 +6,8 @@ function Reservas() {
   const [loading, setLoading] = useState(true);
   const [categoria, setCategoria] = useState("Todas");
 
-
-  const API_URL = "http://100.30.44.192:8080/api/productos";
+  // CAMBIO REALIZADO AQUÍ:
+  const API_URL = "http://3.226.63.93:8080/api/productos";
 
   useEffect(() => {
     const fetchCanchas = async () => {
@@ -77,7 +77,7 @@ function Reservas() {
         </p>
       </section>
 
-     
+      
       <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", marginBottom: "40px" }}>
         <button onClick={() => setCategoria("Todas")} style={btnStyle("Todas")}>Todas</button>
         <button onClick={() => setCategoria("Futbol")} style={btnStyle("Futbol")}>⚽ Fútbol</button>

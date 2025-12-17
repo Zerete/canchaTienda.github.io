@@ -5,8 +5,8 @@ const CanchaDetalle = () => {
   const { id } = useParams();
   const [detalle, setDetalle] = useState(null);
 
- 
-  const API_URL = `http://100.30.44.192:8080/api/productos/${id}`;
+  // CAMBIO REALIZADO AQUÍ:
+  const API_URL = `http://3.226.63.93:8080/api/productos/${id}`;
 
   useEffect(() => {
     const fetchDetalle = async () => {

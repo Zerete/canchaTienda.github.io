@@ -13,9 +13,10 @@ function IniciarSesion() {
 
   const navigate = useNavigate();
 
-  const API_URL = "http://100.30.44.192:8080/auth";
+  // CAMBIO REALIZADO AQUÍ:
+  const API_URL = "http://3.226.63.93:8080/auth";
 
- 
+  
   const registrarUsuario = (e) => {
     e.preventDefault();
    
@@ -23,7 +24,7 @@ function IniciarSesion() {
     setModoRegistro(false);
   };
 
- 
+  
 
   const manejarEnvio = async (e) => {
     e.preventDefault();
@@ -156,7 +157,7 @@ function IniciarSesion() {
           </button>
         </form>
       ) : (
-       
+        
         <form
           onSubmit={manejarEnvio}
           style={{

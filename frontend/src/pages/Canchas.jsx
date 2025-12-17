@@ -5,7 +5,8 @@ const Canchas = () => {
   const [canchas, setCanchas] = useState([]);
   const [categoria, setCategoria] = useState("Todas");
 
-  const API_URL = "http://100.30.44.192:8080/api/productos";
+  // CAMBIO REALIZADO AQUÍ:
+  const API_URL = "http://3.226.63.93:8080/api/productos";
 
   useEffect(() => {
     const fetchCanchas = async () => {
@@ -88,7 +89,7 @@ const Canchas = () => {
                 boxShadow: "0 4px 6px rgba(0,0,0,0.3)"
             }}>
                 <img src={c.imagen} alt={c.nombre} style={{ width: "100%", borderRadius: "10px", height: "180px", objectFit: "cover" }} 
-                     onError={(e) => {e.target.src = "https://via.placeholder.com/300?text=Imagen"}}/>
+                      onError={(e) => {e.target.src = "https://via.placeholder.com/300?text=Imagen"}}/>
                 
                 <h3 style={{ color: "#fff", marginTop: "15px" }}>{c.nombre}</h3>
                 <div style={{color: "#0d6efd", fontWeight: "bold", fontSize: "1.2rem"}}>${c.precioHora?.toLocaleString()} / hora</div>

@@ -192,7 +192,7 @@ const Pago = () => {
 
     try {
         
-        const response = await fetch("http://100.30.44.192:8080/api/reservas/crear", {
+        const response = await fetch("http://3.226.63.93:8080/api/reservas/crear", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(datosReserva)

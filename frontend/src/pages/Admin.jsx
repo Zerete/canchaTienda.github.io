@@ -18,8 +18,8 @@ function Admin() {
   
   const navigate = useNavigate();
 
-
-  const API_URL = "http://100.30.44.192:8080/api/productos";
+  // CAMBIO REALIZADO AQUÍ:
+  const API_URL = "http://3.226.63.93:8080/api/productos";
 
 
   useEffect(() => {
@@ -319,5 +319,5 @@ const btnGris = { backgroundColor: "#6c757d", color: "white", padding: "10px", w
 const btnRojo = { backgroundColor: "#dc3545", color: "white", border: "none", padding: "8px 16px", borderRadius: "5px", cursor: "pointer", fontWeight: "bold" };
 const btnEditar = { backgroundColor: "#ffc107", border: "none", borderRadius: "5px", cursor: "pointer", padding: "8px 12px", fontSize: "1.2rem" };
 const btnEliminar = { backgroundColor: "#dc3545", border: "none", borderRadius: "5px", cursor: "pointer", padding: "8px 12px", fontSize: "1.2rem", color: "white" };
-
+ 
 export default Admin;
